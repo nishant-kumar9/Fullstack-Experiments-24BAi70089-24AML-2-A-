@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: white;
+            color: black;
+        }
+
+        .dark {
+            background: black;
+            color: white;
+        }
+
+        .topbar {
+            height: 60px;
+            background: #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            border: #222 1px solid;
+        }
+
+        body.dark .topbar {
+            background: #222;
+            border: #ffffff 1px solid;
+        }
+        body.dark .leftbar {
+            background: #333;
+            border: #ffffff 1px solid;
+
+        }
+
+        
+        .leftbar {
+            width: 200px;
+            background: #f4f4f4;
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 61px;
+            left: 0;
+            padding: 10px;
+            border: #000000 1px solid;
+            
+
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topbar">
+        <h3>Admin Panel</h3>
+        <button onclick="toggleMode()">Change Theme </button>
+    </div>
+
+    <div class="leftbar">
+        <h1>Menu</h1>
+        <h1>Dashboard</h1>
+        <h1>Settings</h1>
+        
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+</body>
+</html>

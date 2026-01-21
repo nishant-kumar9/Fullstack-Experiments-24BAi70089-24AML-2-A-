@@ -1,0 +1,28 @@
+body
+{
+    max-width: 99%;
+    margin: auto;
+    color: black;
+    background-color:rgb(184, 238, 177)
+}
+.hornet{
+    max-width: 750px;
+   
+}
+.games{
+    max-width: 750px;
+    height: 469px;
+    
+}
+hr{
+    border: 10px solid rgb(228, 191, 91);
+}
+ol{
+    font-size: 50px;
+}
+button{
+    font-size: 30px;
+    background-color: rgb(184, 238, 177);
+    border: 5px solid black;
+    border-radius: 12px;
+}
