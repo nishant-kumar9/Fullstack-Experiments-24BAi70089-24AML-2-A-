@@ -11,17 +11,17 @@ function App() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#e5e7eb", // gray background
+        backgroundColor: "#e5e7eb",
       }}
     >
       <div style={{ position: "relative", width: "900px" }}>
         <textarea
           style={{
             width: "100%",
-            height: "300px",           // BIG BOX
+            height: "300px",           
             padding: "20px",
             fontSize: "18px",
-            backgroundColor: "white",  // WHITE INSIDE
+            backgroundColor: "white", 
             border: "1px solid #9ca3af",
             borderRadius: "8px",
             resize: "none",
