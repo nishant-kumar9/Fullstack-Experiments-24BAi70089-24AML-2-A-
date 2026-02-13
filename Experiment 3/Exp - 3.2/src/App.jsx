@@ -11,7 +11,6 @@ function App() {
   const [author, setAuthor] = useState("");
   const [search, setSearch] = useState("");
 
-  // Add Book
   const addBook = () => {
     if (!title.trim() || !author.trim()) return;
 
@@ -26,12 +25,12 @@ function App() {
     setAuthor("");
   };
 
-  // Remove Book
+ 
   const removeBook = (id) => {
     setBooks(books.filter((book) => book.id !== id));
   };
 
-  // Search Filter
+
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(search.toLowerCase())
   );
