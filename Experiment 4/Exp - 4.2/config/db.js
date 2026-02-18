@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
-export const connectDB = async () => {
+const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://atlas-sql-6992dbfe71e9178181919188-0isgoy.a.query.mongodb.net/sample_mflix?ssl=true&authSource=admin");
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB Connected");
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error.message);
+    console.error("MongoDB Error:", error.message);
     process.exit(1);
   }
 };
+
+export default connectDB;
