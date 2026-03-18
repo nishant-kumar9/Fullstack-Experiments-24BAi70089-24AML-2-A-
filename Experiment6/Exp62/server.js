@@ -11,7 +11,12 @@ const app = express();
 
 app.use(express.json());
 
-// Routes
+// 🔥 Root Route (for browser)
+app.get("/", (req, res) => {
+  res.send("✅ JWT Banking API is running successfully!");
+});
+
+// Auth Routes
 app.use("/api/auth", authRoutes);
 
 // Protected Route
@@ -24,6 +29,6 @@ app.get("/api/protected", protect, (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
