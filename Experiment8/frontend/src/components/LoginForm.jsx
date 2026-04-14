@@ -35,13 +35,13 @@ function LoginForm() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>🔐 Secure Login</h1>
-        <p style={styles.subtitle}>Access your dashboard</p>
+        <h1 style={styles.title}>Welcome Back</h1>
+        <p style={styles.subtitle}>Sign in to continue</p>
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} style={styles.form}>
           <input
             type="text"
-            placeholder="👤 Username"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             style={styles.input}
@@ -49,7 +49,7 @@ function LoginForm() {
 
           <input
             type="password"
-            placeholder="🔒 Password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
@@ -67,55 +67,69 @@ function LoginForm() {
 }
 
 const styles = {
+  /* 🔥 NEW BACKGROUND (CLEAN DARK, NOT BLUE) */
   container: {
     height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #020617, #0f172a, #1e293b)",
+    background: "#0d0d0d",
   },
 
+  /* 🔥 CARD (SOFT GLASS + BORDER) */
   card: {
-    background: "rgba(255,255,255,0.05)",
-    padding: "40px",
-    borderRadius: "20px",
+    background: "#1a1a1a",
+    padding: "35px",
+    borderRadius: "16px",
     width: "320px",
     textAlign: "center",
-    backdropFilter: "blur(15px)",
-    boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.8)",
+    border: "1px solid #2a2a2a",
   },
 
   title: {
-    color: "white",
+    color: "#ffffff",
     marginBottom: "5px",
     fontWeight: "600",
   },
 
   subtitle: {
-    color: "#94a3b8",
+    color: "#888",
     marginBottom: "20px",
     fontSize: "14px",
   },
 
+  /* 🔥 FORM FIX (CENTER PERFECTLY) */
+  form: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+
+  /* 🔥 INPUT (CLEAN DARK INPUTS) */
   input: {
     width: "100%",
     padding: "12px",
     margin: "10px 0",
-    borderRadius: "10px",
-    border: "none",
+    borderRadius: "8px",
+    border: "1px solid #333",
     outline: "none",
-    background: "rgba(255,255,255,0.1)",
-    color: "white",
+    background: "#111",
+    color: "#fff",
     fontSize: "14px",
+    boxSizing: "border-box",
+    transition: "0.3s",
   },
 
+  /* 🔥 BUTTON (MODERN GREEN ACCENT) */
   button: {
     width: "100%",
     padding: "12px",
-    marginTop: "10px",
-    borderRadius: "10px",
+    marginTop: "15px",
+    borderRadius: "8px",
     border: "none",
-    background: "linear-gradient(45deg, #22c55e, #06b6d4)",
+    background: "#22c55e",
     color: "black",
     fontWeight: "bold",
     cursor: "pointer",
@@ -123,7 +137,7 @@ const styles = {
   },
 
   error: {
-    color: "#f87171",
+    color: "#ff4d4d",
     marginTop: "10px",
     fontSize: "14px",
   },
