@@ -9,29 +9,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Checkout code
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # Setup Node
-    - name: Setup Node.js
+    - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 16   # 🔥 FIX (use 16 instead of 18)
 
-    # Install backend dependencies
-    - name: Install Backend Dependencies
+    - name: Install Backend
       run: |
         cd Experiment9/server
         npm install
 
-    # Install frontend dependencies
-    - name: Install Frontend Dependencies
+    - name: Install Frontend
       run: |
         cd Experiment9/client
         npm install
 
-    # Build frontend (IMPORTANT FIX)
     - name: Build Frontend
       run: |
         cd Experiment9/client
