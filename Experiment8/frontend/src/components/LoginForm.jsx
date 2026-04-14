@@ -13,10 +13,13 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://fullstack-experiments-24bai70089-24aml-2-elna.onrender.com/api/login", {
-        username,
-        password
-      });
+      const res = await axios.post(
+        "https://fullstack-experiments-24bai70089-24aml-2-elna.onrender.com/api/login",
+        {
+          username,
+          password,
+        }
+      );
 
       localStorage.setItem("token", res.data.token);
 
@@ -24,21 +27,21 @@ function LoginForm() {
       localStorage.setItem("user", JSON.stringify(payload));
 
       navigate("/dashboard");
-
     } catch {
-      setMessage("Invalid credentials");
+      setMessage("❌ Invalid credentials");
     }
   };
 
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2>Login</h2>
+        <h1 style={styles.title}>🔐 Secure Login</h1>
+        <p style={styles.subtitle}>Access your dashboard</p>
 
         <form onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="👤 Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             style={styles.input}
@@ -46,7 +49,7 @@ function LoginForm() {
 
           <input
             type="password"
-            placeholder="Password"
+            placeholder="🔒 Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
@@ -57,7 +60,7 @@ function LoginForm() {
           </button>
         </form>
 
-        <p style={{ color: "red" }}>{message}</p>
+        {message && <p style={styles.error}>{message}</p>}
       </div>
     </div>
   );
@@ -69,30 +72,61 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(to right, #667eea, #764ba2)"
+    background: "linear-gradient(135deg, #020617, #0f172a, #1e293b)",
   },
+
   card: {
-    background: "white",
-    padding: "30px",
-    borderRadius: "10px",
+    background: "rgba(255,255,255,0.05)",
+    padding: "40px",
+    borderRadius: "20px",
+    width: "320px",
     textAlign: "center",
-    width: "300px",
-    boxShadow: "0px 5px 15px rgba(0,0,0,0.2)"
+    backdropFilter: "blur(15px)",
+    boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
   },
+
+  title: {
+    color: "white",
+    marginBottom: "5px",
+    fontWeight: "600",
+  },
+
+  subtitle: {
+    color: "#94a3b8",
+    marginBottom: "20px",
+    fontSize: "14px",
+  },
+
   input: {
-    display: "block",
     width: "100%",
+    padding: "12px",
     margin: "10px 0",
-    padding: "10px"
+    borderRadius: "10px",
+    border: "none",
+    outline: "none",
+    background: "rgba(255,255,255,0.1)",
+    color: "white",
+    fontSize: "14px",
   },
+
   button: {
     width: "100%",
-    padding: "10px",
-    background: "#1976d2",
-    color: "white",
+    padding: "12px",
+    marginTop: "10px",
+    borderRadius: "10px",
     border: "none",
-    cursor: "pointer"
-  }
+    background: "linear-gradient(45deg, #22c55e, #06b6d4)",
+    color: "black",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "0.3s",
+  },
+
+  error: {
+    color: "#f87171",
+    marginTop: "10px",
+    fontSize: "14px",
+  },
 };
 
 export default LoginForm;
